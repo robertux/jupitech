@@ -1,0 +1,375 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{698A45A3-15D1-4A57-AD93-485B24111D3A}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>WinExe</OutputType>
+    <MyType>WindowsForms</MyType>
+    <RootNamespace>Jupitech</RootNamespace>
+    <AssemblyName>WinApp</AssemblyName>
+    <StartupObject>Jupitech.WinApp.MainForm</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <DefineConstants>DEBUG=1,TRACE=1</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <DefineConstants>TRACE=1</DefineConstants>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.Targets" />
+  <ItemGroup>
+    <Reference Include="cds, Version=1.0.366.712, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Manejadores\bin\Release\cds.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonControlLib, Version=1.0.2563.2867, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\CommonControlLib.dll</HintPath>
+    </Reference>
+    <Reference Include="CrypterClassLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=4451351e2227cb3c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Manejadores\bin\Release\CrypterClassLib.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.Framework, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Mono.Security">
+      <HintPath>..\..\..\C#.Net\CDS\Project\bin\Debug\Mono.Security.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Npgsql, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Manejadores\bin\Release\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\WINDOWS\assembly\GAC_MSIL\System.Web.Services\2.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="XmlClassLib, Version=1.0.366.206, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\C#.Net\XmlClassLib\Project\bin\Debug\XmlClassLib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Windows.Forms" />
+    <Compile Include="abonos.Designer.vb">
+      <DependentUpon>abonos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="abonos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditDoc.Designer.vb">
+      <DependentUpon>AddEditDoc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditDoc.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditTel.designer.vb">
+      <DependentUpon>AddEditTel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditTel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="agregarcompra.Designer.vb">
+      <DependentUpon>agregarcompra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="agregarcompra.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarProducto.Designer.vb">
+      <DependentUpon>AgregarProducto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarProducto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarTipoProducto.Designer.vb">
+      <DependentUpon>AgregarTipoProducto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarTipoProducto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="agregarventa.Designer.vb">
+      <DependentUpon>agregarventa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="agregarventa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="arbolProductos.Designer.vb">
+      <DependentUpon>arbolProductos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="arbolProductos.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.vb" />
+    <Compile Include="cargos.Designer.vb">
+      <DependentUpon>cargos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="cargos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes.Designer.vb">
+      <DependentUpon>Clientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientesDialog.Designer.vb">
+      <DependentUpon>ClientesDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ClientesDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cmbsucursales.Designer.vb">
+      <DependentUpon>cmbsucursales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="cmbsucursales.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Compras.Designer.vb">
+      <DependentUpon>Compras.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Compras.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="crearabonos.Designer.vb">
+      <DependentUpon>crearabonos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="crearabonos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gridabonos.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="gridcargos.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="gridcliente.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="gridClientes.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="gridcompras.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="gridcostos.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GridDocumentos.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="griditemscompra.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="griditemsventa.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="gridprecios.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="gridproducto.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="gridproveedores.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GridTelefonos.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="gridvendedores.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="gridventa.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.vb">
+      <DependentUpon>Login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Login.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.vb">
+      <DependentUpon>MainForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos.designer.vb">
+      <DependentUpon>Productos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Productos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Program.vb" />
+    <Compile Include="ProveedorDialog.Designer.vb">
+      <DependentUpon>ProveedorDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ProveedorDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedores.Designer.vb">
+      <DependentUpon>Proveedores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="seleccionarcliente.Designer.vb">
+      <DependentUpon>seleccionarcliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="seleccionarcliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vendedorDialog.Designer.vb">
+      <DependentUpon>vendedorDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="vendedorDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vendedores.Designer.vb">
+      <DependentUpon>Vendedores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Vendedores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas.Designer.vb">
+      <DependentUpon>Ventas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="abonos.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>abonos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEditDoc.resx">
+      <DependentUpon>AddEditDoc.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEditTel.resx">
+      <DependentUpon>AddEditTel.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="agregarcompra.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>agregarcompra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AgregarProducto.resx">
+      <DependentUpon>AgregarProducto.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AgregarTipoProducto.resx">
+      <DependentUpon>AgregarTipoProducto.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="agregarventa.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>agregarventa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="arbolProductos.resx">
+      <DependentUpon>arbolProductos.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cargos.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>cargos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes.resx">
+      <DependentUpon>Clientes.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientesDialog.resx">
+      <DependentUpon>ClientesDialog.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cmbsucursales.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>cmbsucursales.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras.resx">
+      <DependentUpon>Compras.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crearabonos.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>crearabonos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MainForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productos.resx">
+      <DependentUpon>Productos.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProveedorDialog.resx">
+      <DependentUpon>ProveedorDialog.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedores.resx">
+      <DependentUpon>Proveedores.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="seleccionarcliente.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>seleccionarcliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vendedorDialog.resx">
+      <DependentUpon>vendedorDialog.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vendedores.resx">
+      <DependentUpon>Vendedores.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Ventas.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entidades\Entidades.vbproj">
+      <Project>{9EFE8AEA-1872-41FA-A279-054F114BB0E1}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gerencial\Gerencial.vbproj">
+      <Project>{E7E8BDFA-A4ED-4B9D-B5C9-6A3EABAB757C}</Project>
+      <Name>Gerencial</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Manejadores\Manejadores.vbproj">
+      <Project>{FF769A4D-060D-45F4-9F59-8C2583897E61}</Project>
+      <Name>Manejadores</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="My Project\" />
+  </ItemGroup>
+</Project>

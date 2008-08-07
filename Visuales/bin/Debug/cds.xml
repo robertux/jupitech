@@ -1,0 +1,633 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CDS</name>
+    </assembly>
+    <members>
+        <member name="T:CDS.ICatalogable">
+            <summary>
+            Description of Catalogable.
+            </summary>
+        </member>
+        <member name="P:CDS.ICatalogable.RawList">
+            <summary>
+            Devuelve el conjunto de campos que componen el objeto catalogable
+            </summary>
+        </member>
+        <member name="P:CDS.ICatalogable.PkValue">
+            <summary>
+            Devuelve el valor de la clave primaria del objeto catalogable
+            </summary>
+        </member>
+        <member name="T:CDS.CustomDataTable">
+            <summary>
+            Representa una tabla con caracteristicas especiales para la busqueda y filtrado de datos
+            </summary>
+        </member>
+        <member name="M:CDS.CustomDataTable.#ctor(System.Data.DataTable)">
+            <summary>
+            Crea una nueva instancia de la clase CustomDataTable
+            </summary>
+            <param name="tablaOrigen">La tabla de la cual tomar los datos</param>
+        </member>
+        <member name="M:CDS.CustomDataTable.SelectCount(System.String)">
+            <summary>
+            Devuelve el total de filas que contiene una determinada columna
+            </summary>
+            <param name="columnName">El nombre de la columna</param>
+            <returns></returns>
+        </member>
+        <member name="M:CDS.CustomDataTable.SelectMax(System.String)">
+            <summary>
+            Devuelve el maximo valor  encontrado en una columna
+            </summary>
+            <param name="columnName">El nombre de la columna</param>
+            <returns></returns>
+        </member>
+        <member name="M:CDS.CustomDataTable.Select(System.String,System.Object)">
+            <summary>
+            Devuelve una fila especifica en la cual una columna contiene un valor especifico
+            </summary>
+            <param name="columnName">El nombre de la columna</param>
+            <param name="value">El valor a buscar en esa columna</param>
+            <returns></returns>
+        </member>
+        <member name="T:CDS.CustomGenericDataSource">
+            <summary>
+            Representa de forma abstracta la funcionalidad básica e independiente de un proveedor de datos
+            </summary>
+        </member>
+        <member name="T:CDS.ICustomDataSource">
+            <summary>
+            Representa la interfaz que deben implementar todos mis CustomDataSource y heredados
+            </summary>
+        </member>
+        <member name="M:CDS.ICustomDataSource.Conectar">
+            <summary>
+            Abre una conexion con la base de datos
+            </summary>
+        </member>
+        <member name="M:CDS.ICustomDataSource.Desconectar">
+            <summary>
+            Cierra una conexion con la base de datos
+            </summary>
+        </member>
+        <member name="M:CDS.ICustomDataSource.CargarDS">
+            <summary>
+            Carga el DataSet con todas las tablas contenidas en la base de datos establecida en la conexion
+            </summary>
+        </member>
+        <member name="M:CDS.ICustomDataSource.ActualizarBD">
+            <summary>
+             Actualiza la base de datos con los cambios realizados en el DataSet
+            </summary>
+        </member>
+        <member name="P:CDS.ICustomDataSource.Usuario">
+             <summary>
+            Devuelve o establece el nombre del usuario de la conexion al origen de datos
+             </summary>
+        </member>
+        <member name="P:CDS.ICustomDataSource.Clave">
+            <summary>
+            Devuelve o establece la clave del usuario de la conexion al origen de datos
+            </summary>
+        </member>
+        <member name="P:CDS.ICustomDataSource.Servidor">
+            <summary>
+            Devuelve o establece el servidor donde se encuentra el origen de datos
+            </summary>
+        </member>
+        <member name="P:CDS.ICustomDataSource.BaseDatos">
+            <summary>
+            Devuelve o establece la base de datos a la cual se desea conectar
+            </summary>
+        </member>
+        <member name="P:CDS.ICustomDataSource.CadenaConexion">
+            <summary>
+            Devuelve la cadena de conexion generada en base a las demas propiedades
+            </summary>
+        </member>
+        <member name="P:CDS.ICustomDataSource.Estado">
+            <summary>
+            Devuelve el estado de la conexion
+            </summary>
+        </member>
+        <member name="P:CDS.ICustomDataSource.ParameterChar">
+            <summary>
+            Devuelve el caracter usado en las consultas SQL para referirse a un parametro
+            </summary>
+        </member>
+        <member name="F:CDS.CustomGenericDataSource.user">
+            <summary>
+            Devuelve o establece el nombre del usuario de la conexion al origen de datos
+            </summary>
+        </member>
+        <member name="F:CDS.CustomGenericDataSource.pwd">
+            <summary>
+            Devuelve o establece la clave del usuario de la conexion al origen de datos
+            </summary>
+        </member>
+        <member name="F:CDS.CustomGenericDataSource.host">
+            <summary>
+            Devuelve o establece el servidor donde se encuentra el origen de datos
+            </summary>
+        </member>
+        <member name="F:CDS.CustomGenericDataSource.db">
+            <summary>
+            Devuelve o establece la base de datos a la cual se desea conectar
+            </summary>
+        </member>
+        <member name="F:CDS.CustomGenericDataSource.cm">
+            <summary>
+            Objeto usado para leer/escribir en el archivo de configuracion adjunto al ensamblado
+            </summary>
+        </member>
+        <member name="F:CDS.CustomGenericDataSource._cn">
+            <summary>
+            Objeto usado para conectarse con la base de datos
+            </summary>
+        </member>
+        <member name="F:CDS.CustomGenericDataSource.cmdAux">
+            <summary>
+            Comando auxiliar de uso general cuando se desea realizar una consulta de manera conectada
+            </summary>
+        </member>
+        <member name="F:CDS.CustomGenericDataSource._ds">
+            <summary>
+            Objeto que contiene las tablas en las cuales estan almacenados en memoria todos los registros de las tablas de la base de datos
+            </summary>
+        </member>
+        <member name="M:CDS.CustomGenericDataSource.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Crea una nueva instancia del Acceso a Datos Generico
+            </summary>
+            <param name="pServ">El nombre del servidor</param>
+            <param name="pUser">El nombre del usuario de la base de datos</param>
+            <param name="pPassword">La clave del usuario de la base de datos</param>
+            <param name="pBdName">El nombre de la base de datos a conectarse</param>
+        </member>
+        <member name="M:CDS.CustomGenericDataSource.#ctor(System.Boolean,System.String,System.String)">
+            <summary>
+            Crea una nueva instancia del Acceso a Datos Generico basada en los parametros encontrados en un archivo de configuracion adjunto
+            </summary>
+            <param name="isDataEncrypted">Determina si los datos a leer del archivo de configuración está encriptado</param>
+            <param name="configFilePath">El nombre y la ruta del archivo de configuracion</param>
+            <param name="clave">Si los datos del archivo de configuracion estan encriptados, esta clave es usada para desencritparlos</param>
+        </member>
+        <member name="M:CDS.CustomGenericDataSource.Conectar">
+            <summary>
+            Abre una conexion con la base de datos
+            </summary>		
+        </member>
+        <member name="M:CDS.CustomGenericDataSource.Desconectar">
+            <summary>
+            Cierra una conexion con la base de datos
+            </summary>		
+        </member>
+        <member name="M:CDS.CustomGenericDataSource.CargarDS">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CDS.CustomGenericDataSource.ActualizarBD">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CDS.CustomGenericDataSource.Usuario">
+            <summary>
+            Devuelve o establece el nombre del usuario de la conexion al origen de datos
+            </summary>
+        </member>
+        <member name="P:CDS.CustomGenericDataSource.Clave">
+            <summary>
+            Devuelve o establece la clave del usuario de la conexion al origen de datos
+            </summary>
+        </member>
+        <member name="P:CDS.CustomGenericDataSource.Servidor">
+            <summary>
+            Devuelve o establece el servidor donde se encuentra el origen de datos
+            </summary>
+        </member>
+        <member name="P:CDS.CustomGenericDataSource.BaseDatos">
+            <summary>
+             Devuelve o establece la base de datos a la cual se desea conectar
+            </summary>
+        </member>
+        <member name="P:CDS.CustomGenericDataSource.CadenaConexion">
+            <summary>
+            Cuando es sobreescrito en una clase derivada, devuelve la cadena de conexion generada en base a las demas propiedades
+            </summary>
+        </member>
+        <member name="P:CDS.CustomGenericDataSource.Estado">
+            <summary>
+            Devuelve el estado de la conexion
+            </summary>
+        </member>
+        <member name="P:CDS.CustomGenericDataSource.ParameterChar">
+            <summary>
+            Cuando es sobreescrito en una clase derivada, devuelve el caracter usado en las consultas SQL para referirse a un parametro
+            </summary>
+        </member>
+        <member name="P:CDS.CustomGenericDataSource.DS">
+            <summary>
+            Devuelve el dataset asociado con el control
+            </summary>
+        </member>
+        <member name="T:CDS.IICatalogo">
+            <summary>
+            Interfaz que deben implementar todos los catalogos o manejadores de tablas de una base de datos
+            </summary>
+        </member>
+        <member name="M:CDS.IICatalogo.GetTblRef(System.Data.DataTable)">
+            <summary>
+            Recibe una referencia a una tabla para actualizarla con las operaciones del catalogo
+            </summary>
+            <param name="tabla">La tabla asociada con el catalogo</param>
+        </member>
+        <member name="M:CDS.IICatalogo.Agregar(CDS.ICatalogable)">
+            <summary>
+            Agrega un nuevo registro a una tabla del DataSet asociada con el catalogo
+            </summary>
+            <param name="item">Objeto catalogable que contiene la lista de campos de la nueva fila del catalogo</param>
+        </member>
+        <member name="M:CDS.IICatalogo.Modificar(CDS.ICatalogable)">
+            <summary>
+            Modifica un registro de una tabla del DataSet asociada con el catalogo
+            </summary>
+            <param name="item">Objeto catalogable que contiene la lista de campos con los cambios realizados al registro</param>
+        </member>
+        <member name="M:CDS.IICatalogo.Eliminar(CDS.ICatalogable)">
+            <summary>
+            Elimina un registro de una tabla del DataSet asociada con el catalogo
+            </summary>
+            <param name="item">Objeto catalogable que contiene la clave primaria para buscar el registro a eliminar</param>
+        </member>
+        <member name="M:CDS.IICatalogo.GetMaxPk">
+            <summary>
+            Devuelve el maximo valor de la columna de la clave primaria
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CDS.IICatalogo.BuscarPorPk(System.Object)">
+            <summary>
+            Devuelve un registro de la tabla buscado por su valor en la clave primaria
+            </summary>
+            <param name="pkValue">El valor de la clave primaria del registro para buscarlo</param>
+            <returns>El registro encontrado que coincide con el valor de la clave primaria</returns>
+        </member>
+        <member name="P:CDS.IICatalogo.Nombre">
+            <summary>
+            Devuelve el nombre de la tabla asociada con el catalogo
+            </summary>
+        </member>
+        <member name="P:CDS.IICatalogo.PkName">
+            <summary>
+            Devuelve o establece el nombre de la clave primaria de la tabla asociada con el catalogo
+            </summary>
+        </member>
+        <member name="T:CDS.ITableAdapter">
+            <summary>
+            Representa la interfaz que deben implementar todos mis TableAdapters y heredados
+            </summary>
+        </member>
+        <member name="M:CDS.ITableAdapter.Fill(System.Data.DataSet)">
+            <summary>
+            Rellena el DataSet con la tabla con la que este objeto esta vinculada
+            </summary>
+            <param name="ds"></param>
+        </member>
+        <member name="M:CDS.ITableAdapter.Update(System.Data.DataSet)">
+            <summary>
+            Actualiza la base de datos con los cambios realizados en el DataSet
+            </summary>
+            <param name="ds"></param>
+        </member>
+        <member name="P:CDS.ITableAdapter.Nombre">
+            <summary>
+            Devuelve o establece el nombre de la tabla de la base de datos y del DataTable del DataSet
+            </summary>
+        </member>
+        <member name="T:CDS.MsSql.CustomMsSqlDataSource">
+            <summary>
+            Description of CustomMsSqlDataSource.
+            </summary>
+        </member>
+        <member name="M:CDS.MsSql.CustomMsSqlDataSource.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CDS.MsSql.CustomMsSqlTableAdapter">
+            <summary>
+            Description of CustomMsSqlTableAdapter.
+            </summary>
+        </member>
+        <member name="M:CDS.MsSql.CustomMsSqlTableAdapter.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CDS.MySql.CustomMySqlDataSource">
+            <summary>
+            Representa un acceso a datos de MySql completamente automatizado, encapsula la conexion, el llenado del DataSet y la actualizacion de la Base de Datos
+            </summary>
+        </member>
+        <member name="F:CDS.MySql.CustomMySqlDataSource.tablas">
+            <summary>
+            Contiene el conjunto de TableAdapters usados para la consulta/modificacion de los datos de la base de datos
+            </summary>
+        </member>
+        <member name="F:CDS.MySql.CustomMySqlDataSource._tblNoms">
+            <summary>
+            Almacena la lista de nombres de tablas a utilizar para rellenar el dataset
+            </summary>
+        </member>
+        <member name="M:CDS.MySql.CustomMySqlDataSource.#ctor(System.Boolean,System.String,System.String)">
+            <summary>
+            Crea una nueva instancia de la clase CustomMySqlDataSource basada en los parametros encontrados en un archivo de configuracion adjunto
+            </summary>
+            <param name="isDataEncrypted">Determina si los datos a leer del archivo de configuración está encriptado</param>
+            <param name="configFileName">El nombre y la ruta del archivo de configuracion</param>
+            <param name="clave">Si los datos del archivo de configuracion estan encriptados, esta clave es usada para desencritparlos</param>
+        </member>
+        <member name="M:CDS.MySql.CustomMySqlDataSource.#ctor(System.Boolean,System.String)">
+            <summary>
+            Crea una nueva instancia de la clase CustomMySqlDataSource basada en los parametros encontrados en un archivo de configuracion adjunto
+            </summary>
+            <param name="isDataEncrypted">Determina si los datos a leer del archivo de configuración está encriptado</param>
+            <param name="configFileName">El nombre y la ruta del archivo de configuracion</param>
+            <remarks>En esta sobrecarga es usada la clave que viene por defecto en el encriptador</remarks>
+        </member>
+        <member name="M:CDS.MySql.CustomMySqlDataSource.#ctor">
+            <summary>
+            Crea una nueva instancia de la clase CustomMySqlDataSource basada en los parametros encontrados en un archivo de configuracion llamado 'app.config' y con los datos encriptados
+            </summary>
+        </member>
+        <member name="M:CDS.MySql.CustomMySqlDataSource.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Crea una nueva instancia de la clase CustomMySqlDataSource
+            </summary>
+            <param name="serv">El nombre del servidor</param>
+            <param name="user">El nombre del usuario</param>
+            <param name="password">La clave del usuario</param>
+            <param name="bdName">El nombre de la base de datos a conectarse</param>
+        </member>
+        <member name="M:CDS.MySql.CustomMySqlDataSource.Dispose">
+            <summary>
+            Invoca al metodo Dispose de los miembros que implementan IDisposable
+            </summary>
+        </member>
+        <member name="M:CDS.MySql.CustomMySqlDataSource.CargarDS">
+            <summary>
+            Carga el DataSet con todas las tablas contenidas en la base de datos establecida en la conexion
+            </summary>
+        </member>
+        <member name="M:CDS.MySql.CustomMySqlDataSource.CargarDS(System.Collections.Generic.List{System.String})">
+            <summary>
+            Caraga el DataSet solo con las tablas de la base de datos que se le especifican como parametro
+            </summary>
+            <param name="tblNombres">La lista de nombres de las tablas a cargar</param>
+            <para>El metodo ademas de solo cargar las tablas cuyo nombre aparece en lia lista recibida como parametro, tambien las carga y actualiza en el mismo orden en el que aparecen en la lista recibida</para>
+        </member>
+        <member name="M:CDS.MySql.CustomMySqlDataSource.ActualizarBD">
+            <summary>
+            Actualiza la base de datos con los cambios realizados en el DataSet
+            </summary>
+        </member>
+        <member name="M:CDS.MySql.CustomMySqlDataSource.GetTblDbNoms">
+            <summary>
+            Devuelve la lista de nombres de las tablas que contiene la base de datos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CDS.MySql.CustomMySqlDataSource.CreateTableAdapters">
+            <summary>
+            Crea e inicializa la lista de TableAdapters que se vinculan con las tablas de la base de datos
+            </summary>
+        </member>
+        <member name="P:CDS.MySql.CustomMySqlDataSource.CadenaConexion">
+            <summary>
+            Devuelve la cadena de conexion generada en base a las demas propiedades
+            </summary>
+        </member>
+        <member name="P:CDS.MySql.CustomMySqlDataSource.Item(System.Int32)">
+            <summary>
+            Retorna una tabla del dataset referenciada por un indice
+            </summary>
+            <param name="indice">el indice de la tabla a retornar</param>
+            <returns>Devuelve la tabla seleccionada</returns>
+        </member>
+        <member name="P:CDS.MySql.CustomMySqlDataSource.Item(System.String)">
+            <summary>
+            Retorna una tabla del dataset referenciada por un nombre
+            </summary>
+            <param name="tblNom">el nombre de la tabla a retornar</param>
+            <returns>Devuelve la tabla seleccionada</returns>
+        </member>
+        <member name="P:CDS.MySql.CustomMySqlDataSource.ParameterChar">
+            <summary>
+            Devuelve el caracter usado en las consultas SQL para referirse a un parametro
+            </summary>
+        </member>
+        <member name="P:CDS.MySql.CustomMySqlDataSource.TblNoms">
+            <summary>
+            Devuelve la lista de nombres de tablas a utilizar para rellenar el dataset(si esta vacio) o las tablas con las que ha sido rellenado el DataSet(si esta lleno)
+            </summary>
+        </member>
+        <member name="T:CDS.MySql.CustomMySqlTableAdapter">
+            <summary>
+            Consiste en un conjunto de objetos necesarios para la vinculacion con una tabla
+            </summary>
+        </member>
+        <member name="M:CDS.MySql.CustomMySqlTableAdapter.#ctor(System.String,MySql.Data.MySqlClient.MySqlConnection)">
+            <summary>
+            Crea una nueva instancia de la clase CustomTableAdapter
+            </summary>
+            <param name="nom">El nombre de la tabla con la que se va a vincular</param>
+            <param name="con">Un objeto MySqlConnection para conectarse a la base de datos</param>
+        </member>
+        <member name="M:CDS.MySql.CustomMySqlTableAdapter.Dispose">
+            <summary>
+            Invoca al metodo Dispose de los miembros que implementan IDisposable
+            </summary>
+        </member>
+        <member name="M:CDS.MySql.CustomMySqlTableAdapter.Fill(System.Data.DataSet)">
+            <summary>
+            Rellena el DataSet con la tabla con la que este objeto esta vinculada
+            </summary>
+            <param name="ds">El DataSet a rellenar</param>
+        </member>
+        <member name="M:CDS.MySql.CustomMySqlTableAdapter.Update(System.Data.DataSet)">
+            <summary>
+            Actualiza la base de datos con los cambios realizados en el DataSet
+            </summary>
+            <param name="ds">El DataSet del cual tomar los cambios</param>
+        </member>
+        <member name="P:CDS.MySql.CustomMySqlTableAdapter.Nombre">
+            <summary>
+            Devuelve o establece el nombre de la tabla de la base de datos y del DataTable del DataSet
+            </summary>
+        </member>
+        <member name="T:CDS.Odbc.CustomOdbcDataSource">
+            <summary>
+            Description of CustomOdbcDataSource.
+            </summary>
+        </member>
+        <member name="M:CDS.Odbc.CustomOdbcDataSource.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CDS.Odbc.CustomOdbcTableAdapter">
+            <summary>
+            Description of CustomOdbcTableAdapter.
+            </summary>
+        </member>
+        <member name="M:CDS.Odbc.CustomOdbcTableAdapter.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CDS.PgSql.CustomPgSqlDataSource">
+             <summary>
+            Representa un acceso a datos de PostgreSql completamente automatizado, encapsula la conexion, el llenado del DataSet y la actualizacion de la Base de Datos
+             </summary>
+        </member>
+        <member name="F:CDS.PgSql.CustomPgSqlDataSource.tablas">
+            <summary>
+            Contiene el conjunto de TableAdapters usados para la consulta/modificacion de los datos de la base de datos
+            </summary>
+        </member>
+        <member name="F:CDS.PgSql.CustomPgSqlDataSource._tblNoms">
+            <summary>
+            Almacena la lista de nombres de tablas a utilizar para rellenar el dataset
+            </summary>
+        </member>
+        <member name="M:CDS.PgSql.CustomPgSqlDataSource.#ctor(System.Boolean,System.String,System.String)">
+            <summary>
+            Crea una nueva instancia de la clase CustomPgSqlDataSource basada en los parametros encontrados en un archivo de configuracion adjunto
+            </summary>
+            <param name="isDataEncrypted">Determina si los datos a leer del archivo de configuración está encriptado</param>
+            <param name="configFileName">El nombre y la ruta del archivo de configuracion</param>
+            <param name="clave">Si los datos del archivo de configuracion estan encriptados, esta clave es usada para desencritparlos</param>
+        </member>
+        <member name="M:CDS.PgSql.CustomPgSqlDataSource.#ctor(System.Boolean,System.String)">
+            <summary>
+            Crea una nueva instancia de la clase CustomPgSqlDataSource basada en los parametros encontrados en un archivo de configuracion adjunto
+            </summary>
+            <param name="isDataEncrypted">Determina si los datos a leer del archivo de configuración está encriptado</param>
+            <param name="configFileName">El nombre y la ruta del archivo de configuracion</param>
+            <remarks>En esta sobrecarga es usada la clave que viene por defecto en el encriptador</remarks>
+        </member>
+        <member name="M:CDS.PgSql.CustomPgSqlDataSource.#ctor">
+            <summary>
+            Crea una nueva instancia de la clase CustomPgSqlDataSource basada en los parametros encontrados en un archivo de configuracion llamado 'app.config' y con los datos encriptados
+            </summary>
+        </member>
+        <member name="M:CDS.PgSql.CustomPgSqlDataSource.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Crea una nueva instancia de la clase CustomPgSqlDataSource
+            </summary>
+            <param name="serv">El nombre del servidor</param>
+            <param name="user">El nombre del usuario</param>
+            <param name="password">La clave del usuario</param>
+            <param name="bdName">El nombre de la base de datos a conectarse</param>
+        </member>
+        <member name="M:CDS.PgSql.CustomPgSqlDataSource.Dispose">
+            <summary>
+            Invoca al metodo Dispose de los miembros que implementan IDisposable
+            </summary>
+        </member>
+        <member name="M:CDS.PgSql.CustomPgSqlDataSource.CargarDS">
+            <summary>
+            Carga el DataSet con todas las tablas contenidas en la base de datos establecida en la conexion
+            </summary>
+        </member>
+        <member name="M:CDS.PgSql.CustomPgSqlDataSource.CargarDS(System.Collections.Generic.List{System.String})">
+            <summary>
+            Caraga el DataSet solo con las tablas de la base de datos que se le especifican como parametro
+            </summary>
+            <param name="tblNombres">La lista de nombres de las tablas a cargar</param>
+        </member>
+        <member name="M:CDS.PgSql.CustomPgSqlDataSource.ActualizarBD">
+            <summary>
+            Actualiza la base de datos con los cambios realizados en el DataSet
+            </summary>
+        </member>
+        <member name="M:CDS.PgSql.CustomPgSqlDataSource.GetTblDbNoms">
+            <summary>
+            Devuelve la lista de nombres de las tablas que contiene la base de datos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CDS.PgSql.CustomPgSqlDataSource.CreateTableAdapters">
+            <summary>
+            Crea e inicializa la lista de TableAdapters que se vinculan con las tablas de la base de datos
+            </summary>
+        </member>
+        <member name="P:CDS.PgSql.CustomPgSqlDataSource.CadenaConexion">
+            <summary>
+            Devuelve la cadena de conexion generada en base a las demas propiedades
+            </summary>
+        </member>
+        <member name="P:CDS.PgSql.CustomPgSqlDataSource.Item(System.Int32)">
+            <summary>
+            Retorna una tabla del dataset referenciada por un indice
+            </summary>
+            <param name="indice">el indice de la tabla a retornar</param>
+            <returns>Devuelve la tabla seleccionada</returns>
+        </member>
+        <member name="P:CDS.PgSql.CustomPgSqlDataSource.Item(System.String)">
+            <summary>
+            Retorna una tabla del dataset referenciada por un nombre
+            </summary>
+            <param name="tblNom">el nombre de la tabla a retornar</param>
+            <returns>Devuelve la tabla seleccionada</returns>
+        </member>
+        <member name="P:CDS.PgSql.CustomPgSqlDataSource.ParameterChar">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CDS.PgSql.CustomPgSqlDataSource.TblNoms">
+            <summary>
+            Devuelve la lista de nombres de tablas a utilizar para rellenar el dataset(si esta vacio) o las tablas con las que ha sido rellenado el DataSet(si esta lleno)
+            </summary>
+        </member>
+        <member name="T:CDS.PgSql.CustomPgSqlTableAdapter">
+            <summary>
+            Consiste en un conjunto de objetos necesarios para la vinculacion con una tabla
+            </summary>
+        </member>
+        <member name="M:CDS.PgSql.CustomPgSqlTableAdapter.#ctor(System.String,Npgsql.NpgsqlConnection)">
+            <summary>
+            Crea una nueva instancia de la clase CustomTableAdapter
+            </summary>
+            <param name="nom">El nombre de la tabla con la que se va a vincular</param>
+            <param name="con">Un objeto MySqlConnection para conectarse a la base de datos</param>
+        </member>
+        <member name="M:CDS.PgSql.CustomPgSqlTableAdapter.Dispose">
+            <summary>
+            Invoca al metodo Dispose de los miembros que implementan IDisposable
+            </summary>
+        </member>
+        <member name="M:CDS.PgSql.CustomPgSqlTableAdapter.Fill(System.Data.DataSet)">
+            <summary>
+            Rellena el DataSet con la tabla con la que este objeto esta vinculada
+            </summary>
+            <param name="ds">El DataSet a rellenar</param>
+        </member>
+        <member name="M:CDS.PgSql.CustomPgSqlTableAdapter.Update(System.Data.DataSet)">
+            <summary>
+            Actualiza la base de datos con los cambios realizados en el DataSet
+            </summary>
+            <param name="ds">El DataSet del cual tomar los cambios</param>
+        </member>
+        <member name="P:CDS.PgSql.CustomPgSqlTableAdapter.Nombre">
+            <summary>
+            Devuelve o establece el nombre de la tabla de la base de datos y del DataTable del DataSet
+            </summary>
+        </member>
+    </members>
+</doc>

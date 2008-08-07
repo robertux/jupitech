@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>obj\Debug\XmlClassLib</name>
+    </assembly>
+    <members>
+        <member name="T:XmlClassLib.IXmlManager">
+            <summary>
+            Representa la interfaz que deben implementar todos los Manager que lean/escriban archivos XML y clases heredadas de estos
+            </summary>
+        </member>
+        <member name="P:XmlClassLib.IXmlManager.Estado">
+            <summary>
+            Devuelve el estado del documento que lee/escribe el archivo de configuracion
+            </summary>
+        </member>
+        <member name="M:XmlClassLib.IXmlManager.CargarArchivo(System.String)">
+            <summary>
+            Carga un archivo de configuracion para lectura/escritura de sus propiedades
+            </summary>
+            <param name="rutaArch">La ruta y nombre del archivo de configuracion a utilizar</param>
+            <returns>El estado del documento</returns>
+        </member>
+        <member name="M:XmlClassLib.IXmlManager.LeerXml">
+            <summary>
+            Lee el archivo de configuracion cargado en el documento y rellena las claves y sus valores con las encontradas en el archivo
+            </summary>
+            <returns>El estado del documento</returns>
+        </member>
+        <member name="M:XmlClassLib.IXmlManager.EscribirXml">
+            <summary>
+            Escribe los cambios hechos en las claves sobre el documento y actualiza el archivo de configuracion
+            </summary>
+            <returns>El estado del documento</returns>
+        </member>
+        <member name="T:XmlClassLib.ConfigManager">
+            <summary>
+            Clase que se encarga de leer y escribir claves y valores de un archivo de configuracion XML
+            </summary>
+        </member>
+        <member name="M:XmlClassLib.ConfigManager.#ctor(System.String)">
+            <summary>
+            Crea una nueva instancia de la clase ConfigManager
+            </summary>
+            <param name="archivo">La ruta y nombre del archivo de configuracion a utilizar</param>
+        </member>
+        <member name="P:XmlClassLib.ConfigManager.Item(System.String)">
+            <summary>
+            Devuelve o establece el valor de una clave
+            </summary>
+            <param name="claveNombre">El nombre de la clave</param>
+        </member>
+        <member name="P:XmlClassLib.ConfigManager.Estado">
+            <summary>
+            Devuelve el estado del documento que lee/escribe el archivo de configuracion
+            </summary>
+        </member>
+        <member name="M:XmlClassLib.ConfigManager.CargarArchivo(System.String)">
+            <summary>
+            Carga un archivo de configuracion para lectura/escritura de sus propiedades
+            </summary>
+            <param name="archivo">La ruta y nombre del archivo de configuracion a utilizar</param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:XmlClassLib.ConfigManager.LeerXml">
+            <summary>
+            Lee el archivo de configuracion cargado en el documento y rellena las claves y sus valores con las encontradas en el archivo
+            </summary>
+            <returns>El estado del documento</returns>
+        </member>
+        <member name="M:XmlClassLib.ConfigManager.EscribirXml">
+            <summary>
+            Escribe los cambios hechos en las claves sobre el documento y actualiza el archivo de configuracion
+            </summary>
+            <returns>El estado del documento</returns>
+        </member>
+        <member name="M:XmlClassLib.ConfigManager.GetClaves">
+            <summary>
+            Devuelve el una lista conteniendo las claves encontradas en el archivo de configuracion cargado en el documento XML
+            </summary>
+            <returns>Una lista con las claves</returns>
+        </member>
+        <member name="M:XmlClassLib.ConfigManager.EditClave(System.String,System.String)">
+            <summary>
+            Edita el nombre de una de las claves del documento
+            </summary>
+            <param name="nomClave">El nombre actual de la clave</param>
+            <param name="nuevoNombreClave">El nuevo nombre de la clave</param>
+        </member>
+        <member name="M:XmlClassLib.ConfigManager.EditValor(System.String,System.String)">
+            <summary>
+            Edita el valor de una de las claves del documento
+            </summary>
+            <param name="nomClave">El nombre de la clave a editar</param>
+            <param name="nuevoValor">El nuevo valor de la clave</param>
+        </member>
+        <member name="M:XmlClassLib.ConfigManager.AddClave(System.String,System.String)">
+            <summary>
+            Agrega una nueva clave al documento
+            </summary>
+            <param name="nomClave">El nombre de la nueva clave</param>
+            <param name="valor">El valor de la nueva clave</param>
+        </member>
+        <member name="M:XmlClassLib.ConfigManager.DelClave(System.String)">
+            <summary>
+            Remueve una clave del documento
+            </summary>
+            <param name="nomClave">El nombre de la clave a remover</param>
+        </member>
+        <member name="T:XmlClassLib.DocumentState">
+            <summary>
+            Representa los estados en los que se puede encontrar el documento de lectura/escritura de archivos de configuracion
+            </summary>
+        </member>
+        <member name="F:XmlClassLib.DocumentState.Loaded">
+            <summary>
+            El archivo de configuracion ha sido cargado exitosamente en el documento
+            </summary>
+        </member>
+        <member name="F:XmlClassLib.DocumentState.Modified">
+            <summary>
+            El documento ha sido modificado sin actualizar los cambios en el archivo de configuracion
+            </summary>
+        </member>
+        <member name="F:XmlClassLib.DocumentState.LoadedAndReaded">
+            <summary>
+            El archivo de configuracion ha sido cargado y se han leido sus claves
+            </summary>
+        </member>
+        <member name="F:XmlClassLib.DocumentState.Empty">
+            <summary>
+            El archivo de configuracion no ha sido cargado en el documento
+            </summary>
+        </member>
+        <member name="F:XmlClassLib.DocumentState.Saved">
+            <summary>
+            El documento ha sido modificado y se han actualizado los cambios en el archivo de configuracion
+            </summary>
+        </member>
+    </members>
+</doc>
