@@ -1,0 +1,8 @@
+bin\Debug\Visuales.exe
+bin\Debug\Visuales.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\Visuales.exe
+obj\Debug\Visuales.pdb
+bin\Release\Visuales.exe
+obj\Release\ResolveAssemblyReference.cache
+obj\Release\Visuales.exe
