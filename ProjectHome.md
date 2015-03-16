@@ -1,0 +1,1 @@
+A managers information system oriented to sales/buys. Written in vb.net and using a Postgres database to store the data. It also has an unfinished website made with ASP.Net.
